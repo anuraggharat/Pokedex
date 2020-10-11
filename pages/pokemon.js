@@ -6,30 +6,75 @@ export default function pokemon({ pokeman }) {
   console.log(pokeman);
   return (
     <Layout title={pokeman.name}>
-      <h1 className="text-6xl font-bold mb-2 text-center capitalize">
+      <h1 className="text-6xl font-bold mb-2 text-center text-gray-800 capitalize">
         {pokeman.name.toUpperCase()}
       </h1>
       <div className="container my-4  text-center mx-auto">
         <div className="grid  grid-cols-3 mx-auto">
           <div className="flex flex-col">
-            <p>Weight</p>
-            <h2 className="bold text-3xl">{pokeman.weight}</h2>
+            <p className="text-gray-600">Weight</p>
+            <h2 className="font-bold text-4xl">{pokeman.weight}</h2>
           </div>
           <div className="flex flex-col">
-            <p>Height</p>
-            <h2 className="bold text-3xl">{pokeman.height}</h2>
+            <p className="text-gray-600">Height</p>
+            <h2 className="font-bold text-4xl">{pokeman.height}</h2>
           </div>
           <div className="flex flex-col">
-            <p>Experience</p>
-            <h2 className="bold text-3xl">{pokeman.base_experience}</h2>
+            <p className="text-gray-600">Experience</p>
+            <h2 className="font-bold text-4xl">{pokeman.base_experience}</h2>
           </div>
         </div>
       </div>
       <img className="mx-auto" src={pokeman.image} alt={pokeman.name} />
-      <div></div>
-      <Link href="/">
-        <a>Home</a>
-      </Link>
+      <div className="container">
+        <div className="grid mt-5">
+          <h4 className="mb-2  text-2xl">TYPES:</h4>
+          <div className="flex">
+            {pokeman.types.map((type) => (
+              <p
+                key={type.type.name}
+                className="bg-gray-800 text-xl py-1 rounded-full  text-white px-8 mr-2"
+              >
+                {type.type.name}
+              </p>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid mt-5">
+          <h4 className="mb-2  text-2xl">ABILITY:</h4>
+          <div className="flex">
+            {pokeman.abilities.map((ability) => (
+              <p
+                key={ability.ability.name}
+                className="bg-gray-800 mr-2 py-1 text-xl rounded-full px-8 text-white"
+              >
+                {ability.ability.name}
+              </p>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="container mt-4 pt-8">
+        <h1 className="text-6xl text-center ">STATS</h1>
+        <div className="flex justify-items-center align-middle flex-wrap  mt-5">
+          {pokeman.stats.map((stat) => (
+            <div
+              key={stat.stat.name}
+              className=" text-center w-2/5 flex-none text-white p-2 mx-auto  my-4 rounded-lg bg-gray-800"
+            >
+              <h1 className="text-4xl font-bold ">{stat.base_stat}</h1>
+              <p>{stat.stat.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="container my-5 text-center">
+        <Link href="/">
+          <a className="text-2xl underline text-center">Home</a>
+        </Link>
+      </div>
     </Layout>
   );
 }
