@@ -5,23 +5,27 @@ import Layout from "../components/Layout";
 export default function Home({ pokemon }) {
   return (
     <Layout title="Pokedex">
-      <h1 className="text-4xl mb-8 text-center">NEXT JS</h1>
-      <ul>
+      <h1 className="text-4xl mb-8 text-center">POKEDEX</h1>
+      <div class="grid grid-cols-1 gap-4 text-center lg:grid-cols-3 md:grid-cols-2">
         {pokemon.map((pokeman, index) => (
-          <li key={index}>
+          <div key={index}>
             <Link href={`/pokemon?id=${index + 1}`}>
-              <a className="border p-4 border-gray my-2 flex items-center text-lg bg-gray-200">
-                <img
-                  src={pokeman.image}
-                  alt={pokeman.name}
-                  className="w-20 h-20 mr-auto"
-                />
-                {pokeman.name.toUpperCase()}
+              <a>
+                <div className="rounded-lg hover:shadow-sm transition duration-200 ease-in-out hover:bg-white flex-col py-4 justify-items-center align-middle text-center bg-gray-200">
+                  <img
+                    src={pokeman.image}
+                    alt={pokeman.name}
+                    className="w-40 h-40 mx-auto"
+                  />
+                  <h2 className="text-xl font-bold mt-3 text-gray-900">
+                    {pokeman.name.toUpperCase()}
+                  </h2>
+                </div>
               </a>
             </Link>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </Layout>
   );
 }

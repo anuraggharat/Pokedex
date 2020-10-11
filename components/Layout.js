@@ -8,7 +8,7 @@ export default function Layout({ title, children }) {
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="container mx-auto max-w-xl pt-8 min-h-screen">
+      <main className="container mx-auto w-75 p-20 bg-gray-100 pt-8 min-h-screen">
         {children}
       </main>
     </div>

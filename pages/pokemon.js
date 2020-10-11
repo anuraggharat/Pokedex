@@ -3,7 +3,6 @@ import Layout from "../components/Layout";
 import Link from "next/Link";
 
 export default function pokemon({ pokeman }) {
-  console.log(pokeman);
   return (
     <Layout title={pokeman.name}>
       <h1 className="text-6xl font-bold mb-2 text-center text-gray-800 capitalize">
@@ -33,7 +32,7 @@ export default function pokemon({ pokeman }) {
             {pokeman.types.map((type) => (
               <p
                 key={type.type.name}
-                className="bg-gray-800 text-xl py-1 rounded-full  text-white px-8 mr-2"
+                className=" hover:shadow-lg hover:text-gray-800 hover:bg-white bg-gray-800 text-xl py-1 rounded-full  text-white px-8 mr-2"
               >
                 {type.type.name}
               </p>
@@ -47,7 +46,7 @@ export default function pokemon({ pokeman }) {
             {pokeman.abilities.map((ability) => (
               <p
                 key={ability.ability.name}
-                className="bg-gray-800 mr-2 py-1 text-xl rounded-full px-8 text-white"
+                className=" hover:shadow-lg hover:text-gray-800 hover:bg-white bg-gray-800 mr-2 py-1 text-xl rounded-full px-8 text-white"
               >
                 {ability.ability.name}
               </p>
@@ -62,7 +61,7 @@ export default function pokemon({ pokeman }) {
           {pokeman.stats.map((stat) => (
             <div
               key={stat.stat.name}
-              className=" text-center w-2/5 flex-none text-white p-2 mx-auto  my-4 rounded-lg bg-gray-800"
+              className=" hover:shadow-lg hover:text-gray-800 hover:bg-white text-center w-2/5 flex-none text-white transition duration-500 ease-in-out py-5  mx-auto  my-4 rounded-lg bg-gray-800"
             >
               <h1 className="text-4xl font-bold ">{stat.base_stat}</h1>
               <p>{stat.stat.name}</p>
