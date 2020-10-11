@@ -1,14 +1,16 @@
-import React from 'react'
-import Head from 'next/head'
+import React from "react";
+import Head from "next/Head";
 
-export default function Layout({title}) {
-    return (
-        <div className="bg-gray-300">
-<Head>
+export default function Layout({ title, children }) {
+  return (
+    <div className="bg-gray-100">
+      <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="container mx-auto max-w-xl pt-8 min-h-screen"></main>
-        </div>
-    )
+      <main className="container mx-auto max-w-xl pt-8 min-h-screen">
+        {children}
+      </main>
+    </div>
+  );
 }
